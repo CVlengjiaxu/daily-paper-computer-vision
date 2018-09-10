@@ -7,5 +7,8 @@ Abstract：Object detection and instance segmentation are dominated by region-ba
 
 摘要：目标检测（Object detection）和实例分割（instance segmentation）由基于区域的方法（例如Mask RCNN）主导。然而，人们越来越关注将这些问题减少到像素标记任务，因为后者可以更高效，可以在许多其他任务中使用的图像到图像（image-to-image）网络架构中无缝集成，并且对于不能由边界框近似的目标更加准确。在本文中，我们从理论和经验上表明，使用卷积算子不能轻易地实现构建可以分离对象实例的 dense pixel embeddings 。同时，我们表明简单的修改，我们称之为 semi-convolutional，其在这项任务中有更好的表现。我们证明了这些算子也可用于改进Mask RCNN等方法，展示了比单独使用Mask RCNN可实现的复杂生物形状和PASCAL VOC类别更好的分割。
 
-创新点总结:
+总结:卷积神经网络是局部的和平移不变的,因此当图像中存在一个object的多个复制时,他将会把他们着同样的颜色,因此不适合实例分割(需要考虑全局信息来给不同object着色).因此提出一种semi-convolutional operator
+
+
+
 
