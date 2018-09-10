@@ -9,6 +9,20 @@ Abstract：Object detection and instance segmentation are dominated by region-ba
 
 总结:卷积神经网络是局部的和平移不变的,因此当图像中存在一个object的多个复制时,他将会把他们着同样的颜色,因此不适合实例分割(需要考虑全局信息来给不同object着色).本文提出一种semi-convolutional operator(考虑卷积特征+位置信息),并将其成功应用于Mask RCNN:1.首先得到检测区域 2.用FCN生成分割图(前景概率图),取其中为前景概率最大的像素点最为起点,然后选出与其类似的像素,重新给像素赋予前景概率.  (Mask RCNN的分割为什么是基于proposal,而不是基于全局进行分割?)
 
+### Self-produced Guidance for Weakly-supervised Object Localization
+Abstract. Weakly supervised methods usually generate localization results based on attention maps produced by classification networks. However, the attention maps exhibit the most discriminative parts of the object which are small and sparse. We propose to generate Self-produced Guidance (SPG) masks which separate the foreground i.e., the object
+of interest, from the background to provide the classification networks
+with spatial correlation information of pixels. A stagewise approach is
+proposed to incorporate high confident object regions to learn the SPG
+masks. The high confident regions within attention maps are utilized
+to progressively learn the SPG masks. The masks are then used as an
+auxiliary pixel-level supervision to facilitate the training of classification
+networks. Extensive experiments on ILSVRC demonstrate that SPG is
+effective in producing high-quality object localizations maps. Particu-
+larly, the proposed SPG achieves the Top-1 localization error rate of
+43.83% on the ILSVRC validation set, which is a new state-of-the-art
+error rate.
 
+摘要:弱监督方法通常基于分类网络产生的注意力图（attention maps）生成定位结果。然而，注意力图表现出对象的最具辨别力的部分，这些部分是小的和稀疏的。我们提出生成自生导引（generate Self-produced Guidance ，SPG）掩模，其将前景，感兴趣对象与背景分离，以向分类网络提供像素的空间相关信息。提出了一种分阶段（stagewise）方法，以结合高置性对象区域来学习SPG掩模。注意力图中的高置信区域用于逐步学习SPG掩模。然后将掩模用作辅助像素级监督，以便于分类网络的训练。对ILSVRC的广泛实验表明，SPG可有效地生成高质量的对象定位图。特别是，提出的SPG在ILSVRC验证集上实现了43.83％的Top-1定位错误率，这是一种新的SOTA错误率
 
-
+总结:将后一层生成的注意力图作为上一层注意力图生成的GT,越到前面层定位的注意力区域更准确(浅层包含丰富的位置信息)
