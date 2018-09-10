@@ -2,5 +2,5 @@
 
 ### 2018-9-10:
 
-<<Semi-convolutional Operators for Instance Segmentation>>
+Semi-convolutional Operators for Instance Segmentation
 
