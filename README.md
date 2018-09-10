@@ -23,6 +23,7 @@ larly, the proposed SPG achieves the Top-1 localization error rate of
 43.83% on the ILSVRC validation set, which is a new state-of-the-art
 error rate.
 
+
 摘要:弱监督方法通常基于分类网络产生的注意力图（attention maps）生成定位结果。然而，注意力图表现出对象的最具辨别力的部分，这些部分是小的和稀疏的。我们提出生成自生导引（generate Self-produced Guidance ，SPG）掩模，其将前景，感兴趣对象与背景分离，以向分类网络提供像素的空间相关信息。提出了一种分阶段（stagewise）方法，以结合高置性对象区域来学习SPG掩模。注意力图中的高置信区域用于逐步学习SPG掩模。然后将掩模用作辅助像素级监督，以便于分类网络的训练。对ILSVRC的广泛实验表明，SPG可有效地生成高质量的对象定位图。特别是，提出的SPG在ILSVRC验证集上实现了43.83％的Top-1定位错误率，这是一种新的SOTA错误率
 
 总结:将后一层生成的注意力图作为上一层注意力图生成的GT,越到前面层定位的注意力区域更准确(浅层包含丰富的位置信息)
