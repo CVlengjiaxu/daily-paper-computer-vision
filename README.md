@@ -35,13 +35,14 @@ Abstract：众所周知，用于深度神经网络的数据增广（data augment
 
 总结：基于可视化上下文建模的数据增强！通过学习的上下文来生成新的数据，增加训练实例的数量。
 
+## 2018-9-10:
+
 ### context refinement  for object detection
 
 Abstract. Current two-stage object detectors, which consists of a re- gion proposal stage and a refinement stage, may produce unreliable re- sults due to ill-localized proposed regions. To address this problem, we propose a context refinement algorithm that explores rich contextual in- formation to better refine each proposed region. In particular, we first identify neighboring regions that may contain useful contexts and then perform refinement based on the extracted and unified contextual in- formation. In practice, our method effectively improves the quality of the final detection results as well as region proposals. Empirical studies show that context refinement yields substantial and consistent improve- ments over different baseline detectors. Moreover, the proposed algorithm brings around 3% performance gain on PASCAL VOC benchmark and around 6% gain on MS COCO benchmark respectively.
 
 摘要：当下的二阶段目标检测器主要由一个候选框生成阶段和一个候选框改良阶段组成。对于那些定位失准的候选框，这样的检测器很可能产生不可靠的检测结果。我们研究了这个问题，并尝试使用由附近的候选框所带来的丰富上下文信息来解决它。具体来说，对于每一个候选框，我们首先找到它附近具有有益上下文信息的其他候选框，然后基于从其他候选框提取和整合的上下文信息来对该候选框进行考虑上下文关系的改良。在实际应用中，我们的方法能有效提高最后检测结果的质量，同时也能提高候选框本身的质量。实验数据证明了我们提出的方法能针对不同基线检测器和不同基准测试集带来稳定的提升。详细地说，我们的方法在PASCAL VOC和MS COCO两个基准数据集上为基线检测器分别带来了3%和6%的提升。
 
-总结：利用local context，方法很
-simple
+总结：利用local context，方法很简单，但是写的好~~ so accepted
 
 
