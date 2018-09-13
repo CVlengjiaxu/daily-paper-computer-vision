@@ -35,9 +35,9 @@ Abstract：众所周知，用于深度神经网络的数据增广（data augment
 
 总结：基于可视化上下文建模的数据增强！通过学习的上下文来生成新的数据，增加训练实例的数量。
 
-## 2018-9-10:
+## 2018-9-12:
 
-### context refinement  for object detection
+### context refinement for object detection
 
 Abstract. Current two-stage object detectors, which consists of a re- gion proposal stage and a refinement stage, may produce unreliable re- sults due to ill-localized proposed regions. To address this problem, we propose a context refinement algorithm that explores rich contextual in- formation to better refine each proposed region. In particular, we first identify neighboring regions that may contain useful contexts and then perform refinement based on the extracted and unified contextual in- formation. In practice, our method effectively improves the quality of the final detection results as well as region proposals. Empirical studies show that context refinement yields substantial and consistent improve- ments over different baseline detectors. Moreover, the proposed algorithm brings around 3% performance gain on PASCAL VOC benchmark and around 6% gain on MS COCO benchmark respectively.
 
@@ -45,4 +45,13 @@ Abstract. Current two-stage object detectors, which consists of a re- gion propo
 
 总结：利用local context，方法很简单，但是写的好~~ so accepted
 
+## 2018-9-13:
 
+### Inside-Outside Net: Detecting Objects in Context with Skip Pooling and Recurrent Neural Networks （cvpr2016）
+
+abstract:It is well known that contextual and multi-scale representations are important for accurate visual recognition. In this paper we present the Inside-Outside Net (ION), an object detector that exploits information both inside and outside the region of interest. Contextual information outside the region of interest is integrated using spatial recurrent neural networks. Inside, we use skip pooling to extract information at multiple scales and levels of abstraction. Through extensive experiments we evaluate the design space and provide readers with an overview of what tricks of the trade are important. ION improves state-of-the-art on PASCAL VOC 2012 object detection from 73.9% to 76.4% mAP. On the new and more challenging MS COCO dataset, we improve state-of-art-the from 19.7% to 33.1% mAP. In the 2015 MS COCO Detection Challenge, our ION model won the Best Student Entry and finished 3rd place overall. As intuition suggests, our detection results provide strong evidence that context and multi-scale representations improve small object detection.
+
+摘要： 众所周知，上下文和多尺度表示对于精确的视觉识别是很重要的。在本文中，我们提出了Inside-Outside Net，一种利用感兴趣区域inside和outside信息的检测算法。利用空间递归神经网络集成感兴趣区域之外的上下文信息。在内部，我们使用使用skip-connection提取多尺度特征。通过大量的实验，我们评估了设计空间，并为读者提供了贸易技巧的重要概述。  ION将PASCAL VOC 2012 object detection的mAP从 73.9% 提升到 76.4% mAP。在MS COCO dataset上，ION将mAP从 19.7% 提升到33.1%。正如直觉所表明的，我们的检测结果提供了强有力的证据表明上下文和多尺度表示提升了小目标检测。
+
+总结：paper 使用了multi-scale 进行object detection，在浅层Conv层对其feature maps进行roi-pooling， 增强了对small object的detect能力。 
+    使用了RNN对RoI周围的context的信息建模，增强feature信息，促进后续的分类和回归性能。目前，跨层的特征融合已被用烂，效果最好的应该是fpn。本文的对上下文的利用过于粗暴，最后生成的特征图的每一个cell包含了所有cell的信息，然而很多信息都是没有意义的并且甚至破坏了其他上下文信息的增益效果，也是就是说在上下文建模之前，首先提取出有效的上下文信息是非常有必要的。此外，这种方式仍然没有学到instance之间的上下文关系，instance之间应该是存在
